@@ -1,0 +1,35 @@
+<div class="content-wrapper">
+  <div class="container-xxl flex-grow-1 container-p-y">
+    <h2 class="fw-bold py-3 mb-4 text-center">Clients</h2>
+    <div class="card">
+      <h5 class="card-header">Table of Clients</h5>
+      <div class="table-responsive text-nowrap">
+        <table class="table">
+          <thead>
+            <tr>
+              <th>User Name</th>
+              <th>Email</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody class="table-border-bottom-0">
+            <tr *ngFor="let cliente of clientes">
+              <td>{{cliente.userName}}</td>
+              <td>{{cliente.email}}</td>
+              <td>
+                <a title="editar"
+                   target="_blank">
+                  <i class="material-icons">arrow_forward</i>
+                </a>
+                <a title="eliminar"
+                   target="_blank">
+                  <i class="material-icons">delete</i>
+                </a>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>

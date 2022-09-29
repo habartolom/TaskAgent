@@ -1,0 +1,52 @@
+<div class="container-xxl">
+  <div class="authentication-wrapper authentication-basic container-p-y">
+    <div class="authentication-inner">
+      <div class="card">
+        <div class="card-body">
+          <div class="app-brand justify-content-center">
+            <img src="../../../assets/img/asficredito.png" />
+          </div>
+          <h4 class="mb-2">Adventure starts here 🚀</h4>
+          <p class="mb-4">Make your app management easy and fun!</p>
+
+          <form class="mb-3" [formGroup]="formAutenticacion">
+            <div class="mb-3">
+              <label for="username" class="form-label">Username</label>
+              <input type="text"
+                     class="form-control"
+                     formControlName="userName"
+                     placeholder="Enter your username"
+                     autofocus />
+            </div>
+            <div class="mb-3">
+              <label for="email" class="form-label">Email or Username</label>
+              <input type="text"
+                     class="form-control"
+                     formControlName="email"
+                     placeholder="Enter your email or username"
+                     autofocus />
+            </div>
+            <div class="mb-3 form-password-toggle">
+              <label class="form-label" for="password">Password</label>
+              <div class="input-group input-group-merge">
+                <input type="password"
+                       class="form-control"
+                       formControlName="password"
+                       placeholder="&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;"
+                       aria-describedby="password" />
+                <span class="input-group-text cursor-pointer"><i class="bx bx-hide"></i></span>
+              </div>
+            </div>
+            <button class="btn btn-primary d-grid w-100" (click)="registrar()">Sign up</button>
+          </form>
+          <p class="text-center">
+            <span>Already have an account?</span>
+            <a href="https://localhost:44365">
+              <span>Sign in instead</span>
+            </a>
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
