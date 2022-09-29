@@ -15,7 +15,7 @@ namespace Login.Services
 			_clientRepository = clientRepository;
 		}
 
-		public void Delete(string id)
+		public void Delete(Guid id)
 		{
 			_clientRepository.Delete(id);
 		}
@@ -43,7 +43,7 @@ namespace Login.Services
 			await _clientRepository.Insert(client);
 		}
 
-		public async Task Update(DTClient dtClient, string id)
+		public async Task Update(DTClient dtClient, Guid id)
 		{
 			string jsonDtClient = JsonConvert.SerializeObject(dtClient);
 			Client client = JsonConvert.DeserializeObject<Client>(jsonDtClient);

@@ -5,7 +5,7 @@ namespace TaskLog.Database.Entities
 	public class Department
 	{
 		[Key]
-		public string Id { get; set; }
+		public Guid Id { get; set; }
 
 
 		[Required]

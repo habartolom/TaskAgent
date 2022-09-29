@@ -6,7 +6,7 @@ namespace Login.Database.Entities
 	public class Client
 	{
 		[Key]
-		public string Id { get; set; }
+		public Guid Id { get; set; }
 
 		[Required]
 		public string Email { get; set; }

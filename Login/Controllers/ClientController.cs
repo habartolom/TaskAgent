@@ -74,7 +74,7 @@ namespace Login.Controllers
 		}
 
 		[HttpPut("{id}")]
-		public async Task<IActionResult> UpdateClient([FromBody] DTClient client, string id)
+		public async Task<IActionResult> UpdateClient([FromBody] DTClient client, Guid id)
 		{
 			try
 			{
@@ -88,7 +88,7 @@ namespace Login.Controllers
 		}
 
 		[HttpDelete("{id}")]
-		public IActionResult DeleteClient(string id)
+		public IActionResult DeleteClient(Guid id)
 		{
 			try
 			{

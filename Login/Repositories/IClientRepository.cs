@@ -4,7 +4,7 @@ namespace Login.Repositories
 {
 	public interface IClientRepository
 	{
-		void Delete(string id);
+		void Delete(Guid id);
 		IEnumerable<Client> GetAll();
 		Client GetByEmail(string email);
 		Client GetByEmailAndPassword(string email, string password);

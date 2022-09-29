@@ -9,5 +9,6 @@ namespace TaskLog.Database.Context
 
 		public DbSet<CustomTask> Tasks { get; set; }
 		public DbSet<Department> Departments { get; set; }
+		public DbSet<TaskTimeSlip> TaskTimeSlips { get; set; }
 	}
 }

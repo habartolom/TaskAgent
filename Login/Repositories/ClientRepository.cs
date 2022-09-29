@@ -12,11 +12,11 @@ namespace Login.Repositories
 			_db = db;
 		}
 
-		private async Task<Client> FindById(string id)
+		private async Task<Client> FindById(Guid id)
 		{
 			return await _db.Clients.FindAsync(id);
 		}
-		public async void Delete(string id)
+		public async void Delete(Guid id)
 		{
 			Client client = await FindById(id);
 			_db.Clients.Remove(client);
@@ -40,7 +40,7 @@ namespace Login.Repositories
 
 		public async Task Insert(Client client)
 		{
-			client.Id = Guid.NewGuid().ToString();
+			client.Id = Guid.NewGuid();
 			await _db.Clients.AddAsync(client);
 			await _db.SaveChangesAsync();
 		}

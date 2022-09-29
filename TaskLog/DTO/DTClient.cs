@@ -1,8 +1,6 @@
-﻿using System.ComponentModel.DataAnnotations;
-
-namespace TaskLog.Database.Entities
+﻿namespace TaskLog.DTO
 {
-	public class Client
+	public class DTClient
 	{
 		public string Id { get; set; }
 
