@@ -1,18 +1,18 @@
 <div class="d-flex">
-    <div>
-        Santiago Giraldo
+    <div style="width: 20%;">
+        {{ clientUserName }}
     </div>
-    <div>
-        CREDIVALORES: CV Desarrollo
+    <div style="width: 30%;">
+        {{ timeslip.departmentName }}
     </div>
-    <div>
-        Revision defectos rq seguro voluntario
+    <div style="width: 35%;">
+        {{ timeslip.taskDescription }}
     </div>
-    <div>
-        6:00
+    <div style="width: 8%; text-align: center;">
+        {{ timeslip.duration }}
     </div>
-    <div>
-        <button>Edit</button>
-        <button>Delete</button>
+    <div style="width: 7%">
+        <button class="btn"><i class="fa fa-edit edit"></i></button>
+        <button class="btn" (click)="removeTimeslip()"><i class="fa fa-trash trash"></i></button>
     </div>
 </div>

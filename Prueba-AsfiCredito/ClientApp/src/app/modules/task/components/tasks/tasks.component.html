@@ -1,0 +1,49 @@
+<div class="d-flex my-3">
+
+    <div class="w-75">
+
+        <div class="d-flex justify-content-between my-2">
+
+            <select class="custom-field" style="width: 49%; font-size: 0.9em; padding-left: .5em;" [(ngModel)]="departmentSelected">
+              <option disabled hidden [value]="selectUndefinedOptionValue">
+                  --Department--
+              </option>
+
+              <ng-template ngFor let-department [ngForOf]="departments">
+                  <option [ngValue]="department"> {{ department.name }} </option>
+              </ng-template>
+          </select>
+
+            <input style="width: 49%; padding-left: .5em;" placeholder="Description" [(ngModel)]="description" />
+        </div>
+    </div>
+
+    <div class="w-25 d-flex justify-content-center align-items-center">
+        <button class="btn btn-success" (click)="addTask()">Add Task</button>
+    </div>
+
+</div>
+<div class="content-wrapper">
+    <div class="container-xxl flex-grow-1 container-p-y">
+        <h2 class="fw-bold py-3 mb-4 text-center">Tasks</h2>
+        <div class="card">
+            <h5 class="card-header">Table of Tasks</h5>
+            <div class="table-responsive text-nowrap">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Department</th>
+                            <th>Description</th>
+                        </tr>
+                    </thead>
+                    <tbody class="table-border-bottom-0">
+                        <tr *ngFor="let task of tasks">
+                            <td>{{task.departmentName}}</td>
+                            <td>{{task.description}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

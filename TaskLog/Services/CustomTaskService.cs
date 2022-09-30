@@ -9,9 +9,11 @@ namespace TaskLog.Services
 	public class CustomTaskService : ICustomTaskService
 	{
 		private readonly ICustomTaskRepository _customTaskRepository;
-		public CustomTaskService(ICustomTaskRepository customTaskRepository)
+		private readonly IDepartmentRepository _departmentRepository;
+		public CustomTaskService(ICustomTaskRepository customTaskRepository, IDepartmentRepository departmentRepository)
 		{
 			_customTaskRepository = customTaskRepository;
+			_departmentRepository = departmentRepository;
 		}
 		public async Task<CustomTask> CreateAsync(DTCustomTask dtCustomTask)
 		{
@@ -35,6 +37,25 @@ namespace TaskLog.Services
 		public IEnumerable<CustomTask> GetAll()
 		{
 			return _customTaskRepository.GetAll().AsEnumerable();
+		}
+
+		public IEnumerable<DTTaskDepartment> GetAllIncludeDepartment()
+		{
+			var tasks = _customTaskRepository.GetAll().AsEnumerable();
+			var departments = _departmentRepository.GetAll().AsEnumerable();
+
+			var data = 
+				from task in tasks
+				join department in departments on task.DepartmentId equals department.Id
+				select new DTTaskDepartment
+				{
+					Id = task.Id,
+					Description = task.Description,
+					DepartmentId = task.DepartmentId,
+					DepartmentName = department.Name
+				};
+
+			return data.AsEnumerable();
 		}
 
 		public async Task<CustomTask> UpdateAsync(DTCustomTask dtCustomTask, Guid id)

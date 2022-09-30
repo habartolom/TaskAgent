@@ -9,6 +9,7 @@ namespace TaskLog.Services
 		Task DeleteAsync(Guid id);
 		Task<TaskTimeSlip> FindByIdAsync(Guid id);
 		IEnumerable<TaskTimeSlip> GetAll();
+		IEnumerable<DTTaskTimeSlipClient> GetByClient(Guid clientId);
 		Task<TaskTimeSlip> UpdateAsync(DTTaskTimeSlip entity, Guid id);
 	}
 }

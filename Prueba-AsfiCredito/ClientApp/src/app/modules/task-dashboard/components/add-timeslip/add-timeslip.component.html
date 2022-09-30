@@ -1,35 +1,45 @@
-<div>
+<div class="my-4">
     <label><strong>Add New Timeslip</strong> on</label>
-    <input type="date" />
+    <input type="date" class="ml-2 text-center" [value]="today" disabled/>
 </div>
 <div class="d-flex">
+
     <div class="w-75">
+
         <div class="d-flex justify-content-between my-2">
-            <select class="custom-field" style="width: 44%; font-size: 0.9em;" [(ngModel)]="optionDepartmentSelected" (change)="onDepartmentChange()">
+
+            <select class="custom-field" style="width: 44%; font-size: 0.9em; padding-left: .5em;" [(ngModel)]="departmentSelected" (change)="onDepartmentChange()" [disabled]="timerIsActive">
                 <option disabled hidden [value]="selectUndefinedOptionValue">
-                  --Department--
+                  	--Department--
                 </option>
 
                 <ng-template ngFor let-department [ngForOf]="departments">
                     <option [ngValue]="department"> {{ department.name }} </option>
                 </ng-template>
             </select>
-            <select class="custom-field" style="width: 44%; font-size: 0.9em;" [(ngModel)]="optionTaskSelected" (change)="onTaskChange()">
+
+            <select class="custom-field" style="width: 44%; font-size: 0.9em; padding-left: .5em;" [(ngModel)]="taskSelected" [disabled]="timerIsActive">
                 <option disabled hidden [value]="selectUndefinedOptionValue">
-                  --Task--
+                  	--Task--
                 </option>
 
                 <ng-template ngFor let-task [ngForOf]="departmentTasks">
                     <option [ngValue]="task"> {{ task.description }} </option>
                 </ng-template>
             </select>
-            <input type="text" style="width: 10%; text-align: center;" value="0:00" disabled>
+
+            <input type="text" style="width: 10%; text-align: center;" [value]="timer" disabled>
         </div>
+
         <div class="my-2">
-            <input style="width: 100%;" />
+            <input style="width: 100%; padding-left: 1em;" [(ngModel)]="comment" placeholder="Comment" />
         </div>
+
     </div>
+
     <div class="w-25 d-flex justify-content-center align-items-center">
-        <button (click)="onStartTimer()">Start Timer</button>
+        <button class="btn btn-success" *ngIf="!timerIsActive" (click)="startTimer()">Start Timer</button>
+        <button class="btn btn-danger" *ngIf="timerIsActive" (click)="stopTimer()">Stop Timer</button>
     </div>
+
 </div>

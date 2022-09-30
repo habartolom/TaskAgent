@@ -1,26 +1,24 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { CommonModule, DatePipe } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { TaskComponent } from './components/task/task.component';
-import { TimerComponent } from './components/timer/timer.component';
 import { TaskSetComponent } from './components/task-set/task-set.component';
 import { TimeTrackingComponent } from './components/time-tracking/time-tracking.component';
-import { FilterComponent } from './components/filter/filter.component';
 import { AddTimeslipComponent } from './components/add-timeslip/add-timeslip.component';
 import { FormsModule } from '@angular/forms';
-
-
+import { ModalAddTimeslipComponent } from './components/modal-add-timeslip/modal-add-timeslip.component';
+import { ModalTimeslipComponent } from './components/modal-timeslip/modal-timeslip.component';
 
 @NgModule({
   declarations: [
     DashboardComponent,
     TaskComponent,
-    TimerComponent,
     TaskSetComponent,
     TimeTrackingComponent,
-    FilterComponent,
-    AddTimeslipComponent
+    AddTimeslipComponent,
+    ModalAddTimeslipComponent,
+    ModalTimeslipComponent
   ],
   imports: [
     CommonModule,
@@ -30,6 +28,9 @@ import { FormsModule } from '@angular/forms';
         { path: 'timeTracking', component: TimeTrackingComponent },
       ]
     )
+  ],
+  providers: [
+    DatePipe
   ]
 })
 export class TaskDashboardModule { }

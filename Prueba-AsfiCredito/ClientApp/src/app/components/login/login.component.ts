@@ -38,7 +38,9 @@ export class LoginComponent {
     const email = this.formAutenticacion.value.email;
     const password = this.formAutenticacion.value.password;
     this.clientService.getClienteByEmailAndPassword(email, password).subscribe(res => {
-      console.log(res);
+      const client = { id: res.id, userName: res.userName };
+      const json = JSON.stringify(client);
+      sessionStorage.setItem('client', json);
       this.router.navigate(["/home"]);
     }, err => {
       alert("*** Error *** \n Your email or password is incorrect or not registred");

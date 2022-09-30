@@ -47,7 +47,7 @@ namespace TaskLog.Controllers
 		}
 
 		[HttpGet("{id}")]
-		public IActionResult getById(Guid id)
+		public IActionResult GetById(Guid id)
 		{
 			try
 			{
@@ -61,11 +61,26 @@ namespace TaskLog.Controllers
 		}
 
 		[HttpGet]
-		public IActionResult getAll()
+		public IActionResult GetAll()
 		{
 			try
 			{
 				var tasks = _customTaskService.GetAll();
+				return Ok(tasks);
+			}
+			catch (Exception ex)
+			{
+				return Content(HttpStatusCode.InternalServerError.ToString(), ex.ToString());
+			}
+		}
+
+		[HttpGet]
+		[Route("department")]
+		public IActionResult GetAllIncludeDepartment()
+		{
+			try
+			{
+				var tasks = _customTaskService.GetAllIncludeDepartment().OrderBy(x => x.DepartmentName).ThenBy(x => x.Description);
 				return Ok(tasks);
 			}
 			catch (Exception ex)

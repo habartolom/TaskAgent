@@ -6,4 +6,11 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'app';
+
+  public logged: boolean;
+
+  constructor() {
+      const client =  sessionStorage.getItem('client');
+      this.logged = client != null;
+  }
 }

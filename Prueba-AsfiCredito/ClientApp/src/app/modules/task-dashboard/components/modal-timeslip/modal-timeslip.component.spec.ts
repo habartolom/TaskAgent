@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { TimerComponent } from './timer.component';
+import { ModalTimeslipComponent } from './modal-timeslip.component';
 
-describe('TimerComponent', () => {
-  let component: TimerComponent;
-  let fixture: ComponentFixture<TimerComponent>;
+describe('ModalTimeslipComponent', () => {
+  let component: ModalTimeslipComponent;
+  let fixture: ComponentFixture<ModalTimeslipComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ TimerComponent ]
+      declarations: [ ModalTimeslipComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(TimerComponent);
+    fixture = TestBed.createComponent(ModalTimeslipComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

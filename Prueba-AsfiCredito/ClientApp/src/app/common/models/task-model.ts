@@ -1,5 +1,5 @@
 export class TaskModel {
-  id: string;
-  departmentId: string;
-  description: string;
+	id: string;
+	departmentId: string;
+	description: string;
 }

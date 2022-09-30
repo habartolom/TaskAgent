@@ -6,17 +6,18 @@ import { TaskModel } from 'src/app/common/models/task-model';
 import { TimeSlipModel } from 'src/app/common/models/timeslip-model';
 import { DashboardService } from 'src/app/services/dashboard/dashboard.service';
 import { DepartmentService } from 'src/app/services/department/department.service';
+import { ModalService } from 'src/app/services/modal/modal.service';
 import { TaskService } from 'src/app/services/task/task.service';
 import { TimeSlipService } from 'src/app/services/timeSlip/time-slip.service';
 
 @Component({
-    selector: 'app-add-timeslip',
-    templateUrl: './add-timeslip.component.html',
-    styleUrls: ['./add-timeslip.component.css']
+  selector: 'app-modal-add-timeslip',
+  templateUrl: './modal-add-timeslip.component.html',
+  styleUrls: ['./modal-add-timeslip.component.css']
 })
-export class AddTimeslipComponent implements OnInit {
+export class ModalAddTimeslipComponent implements OnInit {
 
-    public departments: DepartmentModel[];
+  public departments: DepartmentModel[];
     public tasks: TaskModel[];
     public departmentTasks: TaskModel[];
 
@@ -28,6 +29,7 @@ export class AddTimeslipComponent implements OnInit {
     public timer: string;
     public comment: string;
     public clientId: string;
+    public clientUserName: string;
 
     public interval: any;
 
@@ -36,6 +38,7 @@ export class AddTimeslipComponent implements OnInit {
       private taskService: TaskService,
       private timeSlipService: TimeSlipService,
       private dashboardService: DashboardService,
+      private modalService: ModalService,
       private router: Router,
       private datePipe: DatePipe
     ) {
@@ -50,6 +53,7 @@ export class AddTimeslipComponent implements OnInit {
       const client = JSON.parse(json);
 
       this.clientId = client.id;
+      this.clientUserName = client.userName;
 
       this.departmentService.getAllDepartments().subscribe(response => {
         this.departments = response;
@@ -114,6 +118,11 @@ export class AddTimeslipComponent implements OnInit {
 
       this.timeSlipService.InsertTimeSlip(timeSlip).subscribe(() => {
           this.dashboardService.emitChangeDashboardEvent();
+          this.modalService.emitShowModalEvent(false);
       })
+    }
+
+    closeModal(){
+      this.modalService.emitShowModalEvent(false);
     }
 }

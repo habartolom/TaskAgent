@@ -9,6 +9,7 @@ import { HomeComponent } from './components/home/home.component';
 import { ForgotPasswordComponent } from './components/forgot-password/forgot-password.component';
 import { RegisterComponent } from './components/register/register.component';
 import { TaskDashboardModule } from './modules/task-dashboard/task-dashboard.module';
+import { TaskModule } from './modules/task/task.module';
 
 @NgModule({
   declarations: [
@@ -24,6 +25,7 @@ import { TaskDashboardModule } from './modules/task-dashboard/task-dashboard.mod
     FormsModule,
     ReactiveFormsModule,
     TaskDashboardModule,
+    TaskModule,
     RouterModule.forRoot([
       { path: '', component: LoginComponent, pathMatch: 'full' },
       { path: 'home', component: HomeComponent },

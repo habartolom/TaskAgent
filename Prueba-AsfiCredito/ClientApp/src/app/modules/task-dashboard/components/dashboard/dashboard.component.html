@@ -1,2 +1,1 @@
-<app-filter></app-filter>
-<app-task-set></app-task-set>
+<app-task-set *ngFor="let timeslipGroup of timeslipsByDate" [timeslipGroup]="timeslipGroup"></app-task-set>

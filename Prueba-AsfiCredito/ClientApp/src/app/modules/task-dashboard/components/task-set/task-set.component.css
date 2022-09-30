@@ -1,0 +1,8 @@
+.btn {
+    border: none;
+    cursor: pointer;
+}
+
+.btn .plus {
+    color: green;
+}

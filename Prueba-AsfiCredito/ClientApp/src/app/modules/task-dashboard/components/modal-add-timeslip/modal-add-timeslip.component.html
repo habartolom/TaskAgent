@@ -1,0 +1,48 @@
+<div class="w-100 d-flex justify-content-between">
+    <div style="width: 24%;">
+        <div class="my-2">
+            <input style="width: 100%; font-size: 0.9em;" type="text" [value]="clientUserName" disabled>
+        </div>
+        <div class="my-2">
+            <input style="width: 50%; font-size: 0.9em; height: 2em; text-align: center;" type="date" [value]="today" disabled/>
+        </div>
+    </div>
+
+    <div style="width: 51%;">
+        <div class="my-2 d-flex justify-content-between">
+            <select class="custom-field" style="width: 49%; font-size: 0.9em; height: 2em; padding-left: .5em;" [(ngModel)]="departmentSelected" (change)="onDepartmentChange()" [disabled]="timerIsActive">
+              <option disabled hidden [value]="selectUndefinedOptionValue">
+                --Department--
+              </option>
+
+              <ng-template ngFor let-department [ngForOf]="departments">
+                <option [ngValue]="department"> {{ department.name }} </option>
+              </ng-template>
+            </select>
+
+            <select class="custom-field" style="width: 49%; font-size: 0.9em; height: 2em; padding-left: .5em;" [(ngModel)]="taskSelected" [disabled]="timerIsActive">
+              <option disabled hidden [value]="selectUndefinedOptionValue">
+                --Task--
+              </option>
+
+              <ng-template ngFor let-task [ngForOf]="departmentTasks">
+                  <option [ngValue]="task"> {{ task.description }} </option>
+              </ng-template>
+            </select>
+        </div>
+        <div class="my-2">
+            <input style="width: 100%; height: 2em; padding-left: 1em;" [(ngModel)]="comment" placeholder="Comment" />
+        </div>
+    </div>
+
+    <div style="width: 24%;">
+        <div class="my-2">
+            <input type="text" style="width: 50%; text-align: center;" [value]="timer" disabled>
+        </div>
+        <div class="my-2 d-flex justify-content-between">
+            <button style="width: 49%; height: 2em; padding: 0; margin: 0;" class="btn btn-success" *ngIf="!timerIsActive" (click)="startTimer()">Start Timer</button>
+            <button style="width: 49%; height: 2em; padding: 0; margin: 0;" class="btn btn-danger" *ngIf="timerIsActive" (click)="stopTimer()">Stop Timer</button>
+            <button style="width: 49%; height: 2em; padding: 0; margin: 0;" class="btn btn-primary" (click)="closeModal()">Cancel</button>
+        </div>
+    </div>
+</div>

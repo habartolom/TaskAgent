@@ -1,14 +1,21 @@
 <body>
-  <div class="container">
-    <router-outlet></router-outlet>
-  </div>
-  <script src="../assets/vendor/libs/jquery/jquery.js"></script>
-  <script src="../assets/vendor/libs/popper/popper.js"></script>
-  <script src="../assets/vendor/js/bootstrap.js"></script>
-  <script src="../assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.js"></script>
-  <script src="../assets/vendor/libs/hammer/hammer.js"></script>
-  <script src="../assets/vendor/js/menu.js"></script>
-  <!-- endbuild -->
-  <!-- Main JS -->
-  <script src="../assets/js/main.js"></script>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+        <div class="container d-flex justify-content-start">
+            <a [routerLink]="['/home']" class="navbar-brand" href="#">Home</a>
+            <a [routerLink]="['/tasks']" class="navbar-brand" href="#">Tasks</a>
+            <a [routerLink]="['/timeTracking']" class="navbar-brand" href="#">Time-Tracking</a>
+        </div>
+    </nav>
+    <div class="container">
+        <router-outlet></router-outlet>
+    </div>
+    <script src="../assets/vendor/libs/jquery/jquery.js"></script>
+    <script src="../assets/vendor/libs/popper/popper.js"></script>
+    <script src="../assets/vendor/js/bootstrap.js"></script>
+    <script src="../assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.js"></script>
+    <script src="../assets/vendor/libs/hammer/hammer.js"></script>
+    <script src="../assets/vendor/js/menu.js"></script>
+    <!-- endbuild -->
+    <!-- Main JS -->
+    <script src="../assets/js/main.js"></script>
 </body>

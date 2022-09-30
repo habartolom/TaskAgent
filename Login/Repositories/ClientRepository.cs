@@ -11,7 +11,6 @@ namespace Login.Repositories
 		{
 			_db = db;
 		}
-
 		private async Task<Client> FindById(Guid id)
 		{
 			return await _db.Clients.FindAsync(id);

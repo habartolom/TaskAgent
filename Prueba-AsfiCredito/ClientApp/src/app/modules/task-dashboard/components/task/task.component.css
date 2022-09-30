@@ -1,0 +1,12 @@
+.btn {
+    border: none;
+    cursor: pointer;
+}
+
+.btn .edit {
+    color: royalblue;
+}
+
+.btn .trash {
+    color: red;
+}

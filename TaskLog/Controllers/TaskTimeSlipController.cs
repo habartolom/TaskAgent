@@ -74,6 +74,21 @@ namespace TaskLog.Controllers
 			}
 		}
 
+		[HttpGet]
+		[Route("Client/{clientId}")]
+		public IActionResult getByClient([FromRoute] Guid clientId)
+		{
+			try
+			{
+				var TaskTimeSlips = _taskTimeSlipService.GetByClient(clientId);
+				return Ok(TaskTimeSlips);
+			}
+			catch (Exception ex)
+			{
+				return Content(HttpStatusCode.InternalServerError.ToString(), ex.ToString());
+			}
+		}
+
 		[HttpPut("{id}")]
 		public async Task<IActionResult> UpdateClient([FromBody] DTTaskTimeSlip dtTaskTimeSlip, Guid id)
 		{

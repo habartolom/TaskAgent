@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { TaskDepartmentModel } from 'src/app/common/models/task-department-model';
 import { TaskModel } from 'src/app/common/models/task-model';
 
 @Injectable({
@@ -15,6 +16,10 @@ export class TaskService {
 
   public getAllTasks() : Observable<TaskModel[]> {
     return this.http.get<any>('https://' + this.url + ":" + this.port + "/api/CustomTask");
+  }
+
+  public getAllTasksIncludeDepartment() : Observable<TaskDepartmentModel[]> {
+    return this.http.get<any>('https://' + this.url + ":" + this.port + "/api/CustomTask/department");
   }
 
   public getTaskById(id: string) : Observable<TaskModel> {
